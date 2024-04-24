@@ -12,11 +12,11 @@ def query(payload):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    output = None
     if request.method == 'POST':
         input_text = request.form['input_text']
         output = query({"inputs": input_text})
-        return render_template('index.html', output=output)
-    return render_template('index.html')
+    return render_template('index.html', output=output)
 
 if __name__ == '__main__':
     app.run(debug=True)
